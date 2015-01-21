@@ -31,12 +31,12 @@ public class MainActivity extends Activity {
         int selFrom = rgFrom.getCheckedRadioButtonId();
 
         if (selFrom == R.id.rbFrmC)  { //The user wants to convert from Celsius.
-            input=input;
+
         }
 
         if (selFrom == R.id.rbFrmF)  {
 
-        input = (input-32)*(5/9);
+        input = ((input-32)*5)/9;
 
         }
 
@@ -49,11 +49,11 @@ public class MainActivity extends Activity {
         int selTo = rgTo.getCheckedRadioButtonId();
 
         if (selTo == R.id.rbToC)  {
-            input=input;
+
         }
 
         if (selTo == R.id.rbToF)  {
-        input = input * (9/5) + 32;
+        input = ((input * 9)/5) + 32;
 
 
         }
