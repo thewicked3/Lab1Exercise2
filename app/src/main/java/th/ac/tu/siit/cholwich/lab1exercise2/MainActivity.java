@@ -4,6 +4,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
@@ -13,6 +17,64 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+
+    public void buttonClick(View v){
+
+        EditText etInput = (EditText)findViewById(R.id.etInput);
+        String s = etInput.getText().toString();
+
+        Double input = Double.parseDouble(s);
+
+
+        RadioGroup rgFrom = (RadioGroup)findViewById(R.id.rgFrom);
+        int selFrom = rgFrom.getCheckedRadioButtonId();
+
+        if (selFrom == R.id.rbFrmC)  { //The user wants to convert from Celsius.
+
+        }
+
+        if (selFrom == R.id.rbFrmF)  {
+
+        input = (input-32)*(5/9);
+
+        }
+
+        if (selFrom == R.id.rbFrmK)  {
+        input = input * 273.15;
+
+
+        }
+        RadioGroup rgTo = (RadioGroup)findViewById(R.id.rgTo);
+        int selTo = rgTo.getCheckedRadioButtonId();
+
+        if (selTo == R.id.rbToC)  {
+
+        }
+
+        if (selTo == R.id.rbToF)  {
+        input = (input * (9/5)) +32;
+
+
+        }
+
+        if (selTo == R.id.rbToK)  {
+        input = input +273.15;
+
+
+        }
+        TextView tv = (TextView)findViewById(R.id.tvOutput);
+        tv.setText(Double.toString(input));
+
+
+
+
+
+        }
+
+
+
+
 
 
     @Override
